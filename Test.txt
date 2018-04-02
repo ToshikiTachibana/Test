@@ -1,0 +1,18 @@
+[VWHUtils setDefaultInitSetting];   //表示・音声デフォルト初期設定処理
+
+//デフォルト設定処理
++ (void)setDefaultInitSetting {
+//アプリケーションの設定値など、アプリを停止させてもずっと保持しておきたい情報などはよくありますが、NSUserDefaultsを使うとそうしたデータを簡単に保持できます。
+//使い方としてはNSUserDefaultsを取得して、取得したNSUserDefaultsに対してデータを保存したり取り出したりすることでデータ保持を行います。
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:constDisplayAfterPointText    forKey:constDisplayAfterPointKey];
+    [ud setObject:constDisplayOfDirection1Text  forKey:constDisplayOfDirection1Key];
+    [ud setObject:constDisplayOfDirection9Text  forKey:constDisplayOfDirection9Key];
+    [ud setObject:constSpeechAfterPointText     forKey:constSpeechAfterPointKey];
+    [ud setObject:constSpeechOfDirection1Text   forKey:constSpeechOfDirection1Key];
+    [ud setObject:constSpeechOfDirection9Text   forKey:constSpeechOfDirection9Key];
+    [ud setObject:constSpeechOfPassTopKbn1Text  forKey:constSpeechOfPassTopKbn1Key];
+    [ud setObject:constSpeechOfPassTopKbn9Text  forKey:constSpeechOfPassTopKbn9Key];
+
+    [ud synchronize];   //書き込み NSUserDefaultsに即時反映させる。
+
